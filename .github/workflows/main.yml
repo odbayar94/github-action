@@ -13,7 +13,7 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: mkdir build
+      # - run: mkdir build
       # Push
       - name: Push build to deployment branch
         uses: s0/git-publish-subdir-action@develop
@@ -26,4 +26,12 @@ jobs:
 
 
       # Delivery
-      #
+      # - name: deploy to host
+      #   uses: appleboy/ssh-action@Master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     key: ${{ secrets.KEY }}
+      #     port: ${{ secrets.PORT }}
+      #     script: |
+      #       ls
